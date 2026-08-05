@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+"use client";
+
+import { useState } from "react";
 import { useTasks } from "../context/TaskContext";
 
 export default function TaskInput() {

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import { useTasks } from "../context/TaskContext";
 
 export default function TaskList() {
@@ -8,7 +9,7 @@ export default function TaskList() {
   const filteredTasks = tasks.filter((task) => {
     if (filter === "COMPLETED") return task.completed;
     if (filter === "PENDING") return !task.completed;
-    return true; // 'ALL'
+    return true;
   });
 
   return (

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { TaskProvider } from "./context/TaskContext";
 import TaskInput from "./components/TaskInput";

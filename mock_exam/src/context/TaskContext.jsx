@@ -1,11 +1,13 @@
-import React, { createContext, useContext, useReducer } from "react";
+"use client";
+
+import { createContext, useContext, useReducer } from "react";
 
 const initialState = {
   tasks: [
     { id: 1, text: "Learn useReducer", completed: true },
     { id: 2, text: "Build Context Provider", completed: false }
   ],
-  filter: "ALL" // 'ALL' | 'COMPLETED' | 'PENDING'
+  filter: "ALL"
 };
 
 function taskReducer(state, action) {
@@ -18,7 +20,6 @@ function taskReducer(state, action) {
           { id: Date.now(), text: action.payload, completed: false }
         ]
       };
-
     case "TOGGLE_TASK":
       return {
         ...state,
@@ -28,19 +29,16 @@ function taskReducer(state, action) {
             : task
         )
       };
-
     case "DELETE_TASK":
       return {
         ...state,
         tasks: state.tasks.filter((task) => task.id !== action.payload)
       };
-
     case "SET_FILTER":
       return {
         ...state,
         filter: action.payload
       };
-
     default:
       return state;
   }
